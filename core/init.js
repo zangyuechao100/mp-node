@@ -6,7 +6,7 @@ class InitManager {
   static initCore (app) {
     InitManager.app = app
     InitManager.initLoadRouters()
-    InitManager.lodeConfig()
+    InitManager.loadConfig()
   }
 
   static initLoadRouters() {
@@ -28,7 +28,7 @@ class InitManager {
     global.errs = errors
   }
 
-  static lodeConfig () {
+  static loadConfig () {
     const configDirectory = `${process.cwd()}/config/config.js`
     const config = require(configDirectory)
     global.config = config
