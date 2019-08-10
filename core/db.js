@@ -5,7 +5,7 @@ const {
   port,
   user,
   password
-} = reuqire('./../config/config.js').database
+} = require('./../config/config.js').database
 
 const sequelize = new Sequelize(dbName, user, password, {
   dialect: 'mysql',
@@ -13,8 +13,13 @@ const sequelize = new Sequelize(dbName, user, password, {
   port,
   timezone: '+08:00',
   define: {
-
+    timestamps: true,
+    paranoid: true
   }
+})
+
+sequelize.sync({
+  force: false
 })
 
 module.exports = {
