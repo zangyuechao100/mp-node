@@ -4,6 +4,7 @@ const { LoginType } = require('./../../lib/enum')
 const User = require('./../../models/user')
 const { generateToken } = require('./../../../core/util')
 
+const { ParameterException } = require('./../../../core/http-exception')
 const router = new Router({
     prefix: '/v1/token'
 })
