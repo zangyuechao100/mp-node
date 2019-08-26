@@ -1,11 +1,17 @@
 const Router = require('koa-router')
-const router = new Router()
+const Auth = require('./../../../middlewares/auth')
+let auth = new Auth()
+const router = new Router({
+    prefix: '/v1/classic'
+})
 
 // const { HttpException, ParameterException } = require('./../../../core/http-exception.js')
 const { PositiveIntegerValidator } = require('./../../validator/validator')
 
-router.get('/v1/classic/latest', async (ctx, next) => {
-  
+router.get('/latest', auth.m, async () => {
+  ctx.body = {
+    success: 123
+  }
 })
 
 module.exports = router
